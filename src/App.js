@@ -1,33 +1,26 @@
 //imports
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
-import Navbar from './components/Navbar';
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom' 
+import Navbar from './components/Navbar'
 
 //pages & components
-import Home from './pages/home/Home';
-import Login from './pages/login/Login';
-import Signup from './pages/signup/Signup';
+import Home from './pages/home/Home'
+import Login from './pages/login/Login'
+import Signup from './pages/signup/Signup'
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <Switch>
-        <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/signup">
-            <Signup />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<Home />}/>
+          <Route path="/login" element={<Login />}/> 
+          <Route path="/signup"element={<Signup />}/>
+        </Routes>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
